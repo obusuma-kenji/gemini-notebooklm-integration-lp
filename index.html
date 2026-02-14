@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【解禁】Gemini × NotebookLMの衝撃 - 化け物と可能性の獣が融合して何が変わるのか？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0fdf4 50%, #e8f5e9 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(66, 133, 244, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(52, 168, 83, 0.1) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            padding: 40px 20px;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            text-shadow: 0 0 40px rgba(66, 133, 244, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-bottom: 40px;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .hero-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .icon-box {
+            position: relative;
+        }
+
+        .icon-gemini {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #4285f4 0%, #64b5f6 100%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 20px 60px rgba(66, 133, 244, 0.4);
+            animation: morph 8s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .icon-notebooklm {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #34a853 0%, #66bb6a 100%);
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+            box-shadow: 0 20px 60px rgba(52, 168, 83, 0.4);
+            animation: morph 8s ease-in-out infinite reverse;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+        }
+
+        .fusion-symbol {
+            font-size: 4rem;
+            color: #333;
+            text-shadow: 0 0 30px rgba(66, 133, 244, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        /* Two Giants Section */
+        .giants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .giant-card {
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .giant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .giant-card:hover::before {
+            opacity: 1;
+        }
+
+        .giant-card.gemini {
+            border-image: linear-gradient(135deg, #4285f4, #64b5f6) 1;
+        }
+
+        .giant-card.notebooklm {
+            border-image: linear-gradient(135deg, #34a853, #66bb6a) 1;
+        }
+
+        .giant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(66, 133, 244, 0.3);
+        }
+
+        .giant-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .giant-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .giant-card.gemini .giant-title {
+            color: #4285f4;
+        }
+
+        .giant-card.notebooklm .giant-title {
+            color: #34a853;
+        }
+
+        .giant-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .strengths-weaknesses {
+            margin-top: 30px;
+        }
+
+        .strength-item,
+        .weakness-item {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .strength-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #34a853;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .weakness-item::before {
+            content: '⚠';
+            position: absolute;
+            left: 0;
+            color: #fbbc04;
+            font-size: 1.2rem;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 60px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.2) 0%, rgba(52, 168, 83, 0.2) 100%);
+            border-radius: 20px;
+            border: 2px solid #e0e0e0;
+        }
+
+        /* Three Merits Section */
+        .merits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .merit-card {
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.4s ease;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .merit-card:hover {
+            transform: translateY(-10px);
+            border-color: #4285f4;
+            box-shadow: 0 20px 60px rgba(66, 133, 244, 0.3);
+        }
+
+        .merit-number {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .merit-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .merit-description {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .merit-icon {
+            font-size: 5rem;
+            margin: 30px 0;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f4fd 100%);
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Audio Section */
+        .audio-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e8f5e9 100%);
+        }
+
+        .audio-player {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 50px;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 2px solid #34a853;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .audio-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #34a853;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        /* Use Case Section */
+        .use-case-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 40px 20px;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .flow-step:hover {
+            transform: translateY(-10px);
+            border-color: #4285f4;
+        }
+
+        .flow-step-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #4285f4;
+        }
+
+        .flow-step-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+
+        .flow-arrow {
+            font-size: 3rem;
+            color: #34a853;
+        }
+
+        /* Caution Section */
+        .caution-box {
+            background: linear-gradient(135deg, rgba(251, 188, 4, 0.1) 0%, rgba(234, 67, 53, 0.1) 100%);
+            border: 3px solid #fbbc04;
+            border-radius: 30px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .caution-title {
+            font-size: 2.5rem;
+            color: #fbbc04;
+            margin-bottom: 40px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table th {
+            background: #f5f5f5;
+            padding: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .comparison-table td {
+            padding: 25px;
+            border-top: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(66, 133, 244, 0.05);
+        }
+
+        .risk-low {
+            color: #34a853;
+            font-weight: 700;
+        }
+
+        .risk-medium {
+            color: #fbbc04;
+            font-weight: 700;
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .download-card {
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(66, 133, 244, 0.3);
+        }
+
+        .download-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .download-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .download-description {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(66, 133, 244, 0.5);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #e8f4fd 0%, #e8f5e9 100%);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            font-weight: 900;
+            color: #333;
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            padding: 25px 60px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(66, 133, 244, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 30px 80px rgba(66, 133, 244, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .giants-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .merits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-icons {
+                gap: 20px;
+            }
+
+            .icon-gemini,
+            .icon-notebooklm {
+                width: 150px;
+                height: 150px;
+            }
+
+            .fusion-symbol {
+                font-size: 2rem;
+            }
+
+            .flow-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">【解禁】Gemini × NotebookLMの衝撃</h1>
+            <p class="hero-subtitle">「化け物」と「可能性の獣」が融合して何が変わるのか？徹底解説</p>
+            
+            <div class="hero-icons">
+                <div class="icon-box">
+                    <div class="icon-gemini">✨</div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #333;">Gemini</p>
+                </div>
+                <div class="fusion-symbol">×</div>
+                <div class="icon-box">
+                    <div class="icon-notebooklm">📚</div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 1.2rem; color: #333;">NotebookLM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Announcement Section -->
+        <div class="section">
+            <h2 class="section-title">夢の共演が、ついに全ユーザーへ。</h2>
+            
+            <div style="background: #ffffff; backdrop-filter: blur(10px); border-radius: 30px; padding: 60px; border: 2px solid rgba(66, 133, 244, 0.3);">
+                <h3 style="font-size: 2rem; margin-bottom: 30px; color: #4285f4;">対象ユーザー</h3>
+                <p style="font-size: 1.3rem; margin-bottom: 30px;">Google Workspace（企業版）および 個人用Googleアカウント</p>
+                
+                <h3 style="font-size: 2rem; margin-bottom: 30px; color: #34a853; margin-top: 50px;">変更点</h3>
+                <p style="font-size: 1.3rem; margin-bottom: 30px;">これまで独立していたNotebookLMが、Geminiのインターフェースから直接呼び出し可能に。</p>
+                
+                <h3 style="font-size: 2rem; margin-bottom: 30px; color: #fbbc04; margin-top: 50px;">インパクト</h3>
+                <p style="font-size: 1.3rem;">Google最強の2大AIサービス――<br>「二つの巨塔」が正式に手を組んだ瞬間。</p>
+            </div>
+        </div>
+
+        <!-- Two Giants Section -->
+        <div class="section">
+            <h2 class="section-title">相反する強みを持つ「2体の巨神」</h2>
+            
+            <div class="giants-grid">
+                <div class="giant-card gemini">
+                    <div class="giant-icon">✨</div>
+                    <h3 class="giant-title">Gemini</h3>
+                    <p class="giant-subtitle">化け物 (THE CREATIVE ENGINE)</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 20px; color: #34a853;">強み (Strengths)</h4>
+                        <p class="strength-item">高度な推論・エージェント機能</p>
+                        <p class="strength-item">マルチモーダルな創造性（画像・コード生成）</p>
+                        
+                        <h4 style="font-size: 1.5rem; margin: 30px 0 20px; color: #fbbc04;">弱点 (Weakness)</h4>
+                        <p class="weakness-item">ハルシネーション（事実の捏造）のリスク</p>
+                        <p class="weakness-item">ファイルアップロード数の制限（最大10ファイル）</p>
+                    </div>
+                </div>
+
+                <div class="giant-card notebooklm">
+                    <div class="giant-icon">📚</div>
+                    <h3 class="giant-title">NotebookLM</h3>
+                    <p class="giant-subtitle">可能性の獣 (THE GROUNDED BRAIN)</p>
+                    
+                    <div class="strengths-weaknesses">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 20px; color: #34a853;">強み (Strengths)</h4>
+                        <p class="strength-item">ソースに基づく圧倒的な正確性 (Grounding)</p>
+                        <p class="strength-item">大量データの処理（最大50ソース/ノート）</p>
+                        
+                        <h4 style="font-size: 1.5rem; margin: 30px 0 20px; color: #fbbc04;">弱点 (Weakness)</h4>
+                        <p class="weakness-item">出力はテキストのみ</p>
+                        <p class="weakness-item">視覚的なドキュメント作成は不可</p>
+                        <p class="weakness-item">ノートブック間のサイロ化</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tagline">
+                統合により、互いの弱点を完全にカバーする。
+            </div>
+        </div>
+
+        <!-- Three Merits Section -->
+        <div class="section" style="background: linear-gradient(135deg, #f0f4ff 0%, #e8f5e9 100%);">
+            <h2 class="section-title">統合がもたらす3つの革新的メリット</h2>
+            
+            <div class="merits-grid">
+                <div class="merit-card">
+                    <div class="merit-number">01</div>
+                    <h3 class="merit-title">アウトプットの進化</h3>
+                    <div class="merit-icon">📊</div>
+                    <p class="merit-description">
+                        「テキストの壁」からの脱却。GeminiのCanvas機能を使い、視覚的に整理された成果物を生成する。
+                    </p>
+                </div>
+
+                <div class="merit-card">
+                    <div class="merit-number">02</div>
+                    <h3 class="merit-title">情報のサイロ破壊</h3>
+                    <div class="merit-icon">🔍</div>
+                    <p class="merit-description">
+                        「人事」「IT」「営業」など、分断された複数のノートブックを同時に横断検索し、社内ナレッジを統合する。
+                    </p>
+                </div>
+
+                <div class="merit-card">
+                    <div class="merit-number">03</div>
+                    <h3 class="merit-title">限界突破 (Limit Break)</h3>
+                    <div class="merit-icon">🚀</div>
+                    <p class="merit-description">
+                        Gemini単体の「10ファイル制限」を撤廃。NotebookLMを経由することで、数百のファイルを一度に処理する。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section video-section">
+            <h2 class="section-title">📹 実践デモ動画</h2>
+            <div class="video-container">
+                <video controls>
+                    <source src="gemini-notebooklm-video.mp4" type="video/mp4">
+                    お使いのブラウザは動画タグをサポートしていません。
+                </video>
+            </div>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="gemini-notebooklm-video.mp4" download style="color: #4285f4; text-decoration: none; font-weight: bold;">
+                    📥 動画をダウンロード
+                </a>
+            </p>
+        </div>
+
+        <!-- Audio Section -->
+        <div class="section audio-section">
+            <h2 class="section-title">🎧 音声解説</h2>
+            <div class="audio-player">
+                <div class="audio-title">📻 怪物Geminiと獣NotebookLMの融合</div>
+                <audio controls>
+                    <source src="gemini-notebooklm-audio.m4a" type="audio/mp4">
+                    お使いのブラウザは音声タグをサポートしていません。
+                </audio>
+            </div>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="gemini-notebooklm-audio.m4a" download style="color: #34a853; text-decoration: none; font-weight: bold;">
+                    📥 音声をダウンロード
+                </a>
+            </p>
+        </div>
+
+        <!-- Use Case Section -->
+        <div class="section">
+            <h2 class="section-title">Use Case: 究極の議事録作成フロー</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #666; margin-bottom: 60px;">
+                「文字起こしガチャ」を回避する最適解
+            </p>
+            
+            <div class="use-case-flow">
+                <div class="flow-step">
+                    <div class="flow-step-title">Upload Audio</div>
+                    <div class="flow-step-icon">🎵</div>
+                    <p style="color: #666;">音声ファイルをNotebookLMにアップロード</p>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">※Geminiに直接アップロードしないこと（精度が不安定なため）</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="flow-step-title">Connect</div>
+                    <div class="flow-step-icon">🔗</div>
+                    <p style="color: #666;">Geminiのチャット画面から、文字起こし済みのNotebookLMをソースとして呼び出す</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="flow-step-title">Prompt</div>
+                    <div class="flow-step-icon">✨</div>
+                    <p style="color: #666;">「この会議の決定事項を表形式で、Canvasにまとめて」と指示</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(66, 133, 244, 0.1); border: 2px solid #4285f4; border-radius: 20px; padding: 40px; margin-top: 60px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #4285f4; text-align: center;">Canvas Output Example</h3>
+                <div style="background: #ffffff; padding: 40px; border-radius: 15px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 20px;">定例進捗会議 議事録</h4>
+                    <p style="margin-bottom: 30px; color: #666;">分析結果を、即座に共有可能なHTML/PDF形式のドキュメントに整形</p>
+                    <div style="background: rgba(52, 168, 83, 0.1); padding: 20px; border-radius: 10px;">
+                        <p style="margin-bottom: 10px;"><strong>✓ 決定事項</strong></p>
+                        <p style="margin-bottom: 10px;"><strong>✓ ネクストアクション</strong></p>
+                        <p><strong>✓ 編集・PDF化が即座に可能</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Merit 2: Knowledge Concierge -->
+        <div class="section" style="background: linear-gradient(135deg, #1a3a2f 0%, #0f1729 100%);">
+            <h2 class="section-title">Merit 2: 社内ナレッジの「コンシェルジュ化」</h2>
+            
+            <div style="text-align: center; margin: 60px 0;">
+                <div style="display: inline-block; background: #ffffff; padding: 50px; border-radius: 30px; border: 2px solid rgba(52, 168, 83, 0.3);">
+                    <div style="font-size: 3rem; margin-bottom: 30px;">🤖</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 30px; color: #34a853;">Gem (Custom Bot)</h3>
+                    <p style="font-size: 1.3rem; color: #666; max-width: 600px;">
+                        複数のNotebookを参照する「社内問い合わせ窓口」を作成<br><br>
+                        ユーザーは情報のありか（どのノートブックか？）を気にする必要がない。<br>
+                        Geminiが横断的に検索し、回答を生成する。
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: rgba(66, 133, 244, 0.1); border: 2px solid #4285f4; border-radius: 20px; padding: 40px; margin-top: 60px;">
+                <h4 style="font-size: 1.5rem; margin-bottom: 20px; color: #4285f4;">Example Query:</h4>
+                <p style="font-size: 1.2rem; padding: 20px; background: #ffffff; border-radius: 10px;">
+                    「有給取得の申請方法と、その際のエラー対処法を教えて」
+                </p>
+                <p style="margin-top: 30px; color: #666;">
+                    → Geminiが人事規定・ITマニュアル・営業資料のNotebookを自動検索し、統合された回答を提供
+                </p>
+            </div>
+        </div>
+
+        <!-- Merit 3: Context Window Limit Break -->
+        <div class="section">
+            <h2 class="section-title">Merit 3: コンテキストウィンドウの限界突破</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; margin: 60px 0;">
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 30px; color: #4285f4;">Gemini Standard</h3>
+                    <p style="font-size: 1.2rem; color: #666; margin-bottom: 20px;">（直接アップロード）</p>
+                    <div style="font-size: 5rem; margin: 30px 0;">📦</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: #4285f4;">10 Files</div>
+                    <p style="margin-top: 20px; color: #666;">Gemini直接アップロード上限</p>
+                </div>
+
+                <div style="font-size: 4rem; color: #34a853;">&gt;</div>
+
+                <div style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 30px; color: #34a853;">Integration Power</h3>
+                    <p style="font-size: 1.2rem; color: #666; margin-bottom: 20px;">（NotebookLM経由）</p>
+                    <div style="font-size: 5rem; margin: 30px 0;">📚📚📚</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: #34a853;">500+ Files</div>
+                    <p style="margin-top: 20px; color: #666;">NotebookLM経由の参照能力</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(52, 168, 83, 0.1); border: 2px solid #34a853; border-radius: 20px; padding: 40px; text-align: center;">
+                <p style="font-size: 1.5rem; margin-bottom: 20px;"><strong>10 Notebooks × 50 Sources = 500 Files</strong></p>
+                <p style="font-size: 1.2rem; color: #666;">
+                    過去数年分のプロジェクトレポートや、膨大な論文データを一度にコンテキストに乗せることが可能に。
+                </p>
+            </div>
+        </div>
+
+        <!-- Caution Section -->
+        <div class="section">
+            <div class="caution-box">
+                <h2 class="caution-title">
+                    <span style="font-size: 3rem;">⚠️</span>
+                    CAUTION: 創造性と正確性のトレードオフ
+                </h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>モード</th>
+                            <th>Behavior</th>
+                            <th>Description</th>
+                            <th>Risk Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color: #34a853;">NotebookLM<br>(Standalone)</strong></td>
+                            <td>ソース至上主義<br>(Source Only)</td>
+                            <td>ソースにない情報は「分かりません」と答える。</td>
+                            <td class="risk-low">✓ Low<br>(Hallucination is rare)</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: #4285f4;">Gemini<br>(Integrated)</strong></td>
+                            <td>創造的補完<br>(Creative Filling)</td>
+                            <td>Notebookを「参考」にするが、隙間を外部知識や推論で埋めようとする。</td>
+                            <td class="risk-medium">⚠ Medium<br>(Possibility of Hallucination)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="background: rgba(66, 133, 244, 0.05); padding: 40px; border-radius: 20px; margin-top: 40px; border-left: 5px solid #fbbc04;">
+                    <p style="font-size: 1.3rem; text-align: center;">
+                        ⚠️ 「契約書の罰則条項」など、100%の正確性が求められる場面では、<br>
+                        Geminiが良かれと思って付け加える「外部情報」がリスクになる。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prompt Best Practices -->
+        <div class="section" style="background: linear-gradient(135deg, #f0f4ff 0%, #e8f5e9 100%);">
+            <h2 class="section-title">統合モデルを制御するプロンプトの鉄則</h2>
+            
+            <div style="background: #ffffff; backdrop-filter: blur(10px); border-radius: 30px; padding: 50px; border: 2px solid #e0e0e0; margin-bottom: 60px;">
+                <p style="font-size: 1.5rem; text-align: center; font-family: monospace; padding: 30px; background: rgba(66, 133, 244, 0.1); border-radius: 15px; border-left: 5px solid #4285f4;">
+                    「添付されたNotebookの情報のみを使用して回答してください。<br>
+                    外部知識は一切使用しないでください。」
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+                <div style="background: rgba(52, 168, 83, 0.1); border: 2px solid #34a853; border-radius: 20px; padding: 40px;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #34a853; text-align: center;">NotebookLM（単体）を使うべき時</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">厳密なファクトチェック</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">ソースの深読み</li>
+                        <li style="padding: 15px 0;">引用元の明記が必要な時</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(66, 133, 244, 0.1); border: 2px solid #4285f4; border-radius: 20px; padding: 40px;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #4285f4; text-align: center;">統合機能（Integration）を使うべき時</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">ドキュメント・スライドの作成</li>
+                        <li style="padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">データに基づくブレインストーミング</li>
+                        <li style="padding: 15px 0;">複数ソースの横断的な要約</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Message Section -->
+        <div class="section">
+            <h2 class="section-title">「データと会話する」時代から、「データで創造する」時代へ。</h2>
+            
+            <div style="text-align: center; margin: 60px 0;">
+                <div style="display: inline-block; max-width: 1000px;">
+                    <p style="font-size: 1.5rem; color: #666; margin-bottom: 40px; line-height: 2;">
+                        Geminiの「創造性」とNotebookLMの「知識」の融合は、単なる効率化ではありません。<br>
+                        あなたのビジネスワークフローを、受動的な検索から能動的な錬金術な生産へと変革します。
+                    </p>
+                    
+                    <div style="background: rgba(66, 133, 244, 0.05); padding: 50px; border-radius: 30px; border: 3px solid rgba(66, 133, 244, 0.5);">
+                        <p style="font-size: 1.8rem; font-weight: 900;">
+                            今すぐ、あなたの手元の「サイロ化した知識」をGeminiに接続し、<br>
+                            新しい価値を生み出してください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="section" style="background: linear-gradient(135deg, #1a3a2f 0%, #0f1729 100%);">
+            <h2 class="section-title">📚 ダウンロード資料</h2>
+            
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="download-icon">📄</div>
+                    <h3 class="download-title">完全ガイドPDF</h3>
+                    <p class="download-description">12ページの詳細解説<br>統合機能の全容を網羅</p>
+                    <a href="Gemini_NotebookLM_Limit_Break.pdf" download class="download-btn">PDFをダウンロード</a>
+                </div>
+
+                <div class="download-card">
+                    <div class="download-icon">📊</div>
+                    <h3 class="download-title">連携機能比較表</h3>
+                    <p class="download-description">GeminiとNotebookLMの<br>詳細な機能比較データ</p>
+                    <a href="GeminiとNotebookLMの連携機能と特徴.xlsx" download class="download-btn">Excelをダウンロード</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2 class="cta-title">その威力を、今すぐ体験してください。</h2>
+        <p class="cta-description">
+            GoogleのAI最強タッグが、あなたの働き方を根本から変える。<br>
+            夢の統合機能を、今日から使い始めましょう。
+        </p>
+        <a href="https://gemini.google.com" target="_blank" class="cta-button">
+            Gemini × NotebookLMを試す →
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Gemini × NotebookLM 統合ガイド | AI活用の新時代を切り拓く</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            Based on insights from Kousuke-sensei's Google Juku | NotebookLM Powered
+        </p>
+    </footer>
+</body>
+</html>
