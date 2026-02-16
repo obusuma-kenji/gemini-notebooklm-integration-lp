@@ -605,6 +605,24 @@
                 display: none;
             }
         }
+
+        /* Footer link */
+.footer-link {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: #fff !important;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(66, 133, 244, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.footer-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(66, 133, 244, 0.35);
+}
     </style>
 </head>
 <body>
@@ -990,12 +1008,20 @@
         </a>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Gemini × NotebookLM 統合ガイド | AI活用の新時代を切り拓く</p>
-        <p style="margin-top: 10px; font-size: 0.9rem;">
-            Based on insights from Kousuke-sensei's Google Juku | NotebookLM Powered
-        </p>
-    </footer>
+   <footer>
+  <p>© 2025 Gemini × NotebookLM 統合ガイド | AI活用の新時代を切り拓く</p>
+  <p style="margin-top: 10px; font-size: 0.9rem;">
+    Based on insights from Kousuke-sensei's Google Juku | NotebookLM Powered
+  </p>
+
+  <a
+    class="footer-link"
+    href="https://obusuma-kenji.github.io/sairyou_roudou/"
+    target="_blank"
+    rel="noopener"
+  >
+    📌 参考LP：労働法アップデート（裁量労働制・労基法改正）を開く →
+  </a>
+</footer>
 </body>
 </html>
