@@ -607,27 +607,31 @@
         }
 
         /* Footer link */
+footer {
+  display: flex;
+  flex-direction: column; /* ← 追加 */
+  gap: 16px;
+  align-items: center;    /* ← 追加 */
+  flex-wrap: wrap;
+}
+
 .footer-link {
   display: inline-block;
-  margin-top: 18px;
+  margin-top: 0;          /* ← 18px → 0 に変更 */
   padding: 14px 22px;
   border-radius: 999px;
   background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
   color: #fff !important;
   font-weight: 800;
   text-decoration: none;
+  text-align: center;     /* ← 追加 */
   box-shadow: 0 10px 30px rgba(66, 133, 244, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .footer-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(66, 133, 244, 0.35);
-}
-footer {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
     </style>
 </head>
